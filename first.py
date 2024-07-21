@@ -1,7 +1,6 @@
 from math import *
 #math is a module...
 
-import os
 
 
 
@@ -17,12 +16,12 @@ print("/__|")
 
 
 #Variables and Data Types
-name = "Adam";
-age = "18";
-print("There was a dude who looked like me called " + name +",");
-print("he was "+ age + " years old.");
-print(name +" really loved his looks,");
-print("but didn't like being "+ age +".");
+name = "Adam"
+age = "18"
+print(f"There was a dude who looked like me called {name} ")
+print("he was "+ age + " years old.")
+print(name +" really loved his looks,")
+print("but didn't like being "+ age +".")
 
 
 #integers(int) are whole numbers
@@ -34,31 +33,31 @@ print("but didn't like being "+ age +".");
 #WORKING WITH STRINGS....LINE 31 to LINE 70
 
 #Uppercases And Lowercases
-phrase = "I'm The Best";
-print(phrase.upper());
+phrase = "I'm The Best"
+print(phrase.upper())
 sentence = "THE ONLY ONE WHO CAN BEAT ME IS ME";
 print(sentence.lower())
 
 #Checking if it is upper or lowercase
-phrase = "I'm The Best";
-print(phrase.isupper());
-sentence = "THE ONLY ONE WHO CAN BEAT ME IS ME";
+phrase = "I'm The Best"
+print(phrase.isupper())
+sentence = "THE ONLY ONE WHO CAN BEAT ME IS ME"
 print(sentence.islower())
 
-#Merging the two sets above 
-#the two will produce true because the first is checking to see if it is UC which it and the second is checking to se if it is LC which also is
-phrase = "I'm The Best";
-print(phrase.upper().isupper());
-sentence = "THE ONLY ONE WHO CAN BEAT ME IS ME";
-print(sentence.lower().islower());
+# Merging the two sets above 
+# the two will produce true because the first is checking to see if it is UC which it and the second is checking to se if it is LC which also is
+phrase = "I'm The Best"
+print(phrase.upper().isupper())
+sentence = "THE ONLY ONE WHO CAN BEAT ME IS ME"
+print(sentence.lower().islower())
 
 #Checking Length/ how many characters are in a phrase
-sentence2 = "ANONYMOUSX44";
-print(len(sentence2));
+sentence2 = "ANONYMOUSX44"
+print(len(sentence2))
 
 #this is me testing something out, don't mind me lol
-phrase2 = input("Your name: ");
-print(len(phrase2));
+phrase2 = input("Your name: ")
+print(len(phrase2))
 
 #finding a character in a string and note its starts with 0
 line = "BATMAN"
