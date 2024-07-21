@@ -17,9 +17,9 @@ username = input("Enter a username: ")
 def receive():
     while True:
         try:
-            message = client.recv(1024)
+            message = client.recv(1024).decode('utf-8')
             if message == 'NICK':
-                client.send(username.encode('ascii'))
+                client.send(username.encode('utf-8'))
             else:
                 print(message)
         except:
@@ -30,8 +30,8 @@ def receive():
 # Here's where the client gets to send messages
 def write():
     while True:
-        message = f"{username}: {input("")}"
-        client.send(message.encode('ascii'))
+        message = f"{username}: {input("")}\n"
+        client.send(message.encode('utf-8'))
 
 receive_thread = threading.Thread(target=receive)
 receive_thread.start()

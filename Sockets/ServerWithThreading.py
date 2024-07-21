@@ -37,7 +37,7 @@ def handle(client):
             clients.remove(client)
             client.close()
             username = usernames(index)
-            broadcast(f"{username} left the chat".encode('ascii'))
+            broadcast(f"{username} left the chat".encode('utf-8'))
             usernames.remove(username)
             break
 
@@ -51,14 +51,14 @@ def receive():
         client, address = server.accept()
         print(f"Connection with {str(address)} successful")
 
-        client.send('NICK'.encode('ascii'))
-        username = client.recv(1024).decode('ascii')
+        client.send('NICK'.encode('utf-8'))
+        username = client.recv(1024).decode('utf-8')
         usernames.append(username)
         clients.append(client)
 
         print(f"Username of client is {username}")
-        broadcast(f"{username} just joined the party".encode('ascii'))
-        client.send("Connected to server".encode('ascii'))
+        broadcast(f"{username} just joined the party\n".encode('utf-8'))
+        client.send("Connected to server".encode('utf-8'))
 
         thread = threading.Thread(target=handle, args=(client,))
         thread.start()
