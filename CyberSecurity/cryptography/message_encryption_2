@@ -1,0 +1,54 @@
+#!/bin/python3
+
+from cryptography.fernet import Fernet
+
+def generate_key():
+    return Fernet.generate_key()
+def message(key, message):
+    suite = Fernet(key)
+    message_e = suite.encrypt(message.encode())
+    return message_e
+def clear(key, message):
+    suite = Fernet(key)
+    message_d = suite.decrypt(message)
+    return message_d.decode()
+
+while True:
+    choice = int(input("What to do?\n1. Generate Key\n2. Encrypt Message\n3. Decrypt Message\n4. Quit\n"))
+    if choice == 1:
+        print(generate_key())
+    elif choice == 2:
+        choose = input("Use existing key?\nY or N: ")
+        if choose.lower() == "n":
+            mess = input("Enter Message: ")
+            key = generate_key()
+            e_message = message(key, mess)
+            decide = input(f"Encrypted Message: {e_message}\nShare Key?\nY or N: ")
+            if decide.lower() == "n":
+                print("Alright!")
+            elif decide.lower() == "y":
+                print(f"{key}")
+            else:
+                print("Invalid Response...That means No then")
+        elif choose.lower() == "y":
+            key = input("Enter Key: ")
+            mess = input("Enter Message: ")
+            e_message = message(key, mess)
+            print(f"Encrypted Message: {e_message}. Share the key with receiver.")
+    elif choice == 3:
+        choose = input("Use existing key?\nY or N: ")
+        if choose.lower() == "y":
+            key = input("Enter Key: ")
+            mess = input("Enter Message: ")
+            d_message = clear(key, mess)
+            print(f"Decrypted Message: {d_message}")
+        elif choose.lower() == "n":
+            mess = input("Enter Message: ")
+            print(f"Decrypted Message: {clear(generate_key(), mess)}")
+        else:
+            print("Invalid input")
+    elif choice == 4:
+        print("Good bye! Have fun!")
+        break
+    else:
+        print("Invalid Option")
