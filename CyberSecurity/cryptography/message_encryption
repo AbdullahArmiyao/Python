@@ -1,0 +1,29 @@
+#!/bin/python3
+
+from cryptography.fernet import Fernet
+
+# function to generate random key
+def generate_key():
+    return Fernet.generate_key()
+
+# function to encrypt message
+def message_encryption(key, message):
+    cipher_suite = Fernet(key)
+    encrypted_message = cipher_suite.encrypt(message.encode())
+    return encrypted_message
+
+# function to decrypt message
+def message_decryption(key, encrypted_message):
+    cipher_suite = Fernet(key)
+    decrypted_message = cipher_suite.decrypt(encrypted_message.decode())
+    return decrypted_message
+
+if __name__ == "__main__":
+    key = generate_key()
+    message = input("Enter Message: ")
+
+    em = message_encryption(key, message)
+    print(f"Message: {em}")
+
+    dm = message_decryption(key, em)
+    print(f"Message: {dm}")
