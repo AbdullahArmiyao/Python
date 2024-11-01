@@ -4,7 +4,7 @@
 import socket
 
 # function to check url of fomat x.x.x
-def check_url(domain, subdomains, tld):
+def check_url1(domain, subdomains, tld):
     # valid subdomain list
     found_subdomains = []
     # in the list of given subdomain
@@ -58,7 +58,7 @@ topdomain2 = ["gh", "us", "uk", "de", "in", "au", "jp", "fr", "br", "ru", "it", 
 # confirm number of TLDs
 tld_count = int(input("How many top level domains?: "))
 if tld_count == 1:
-    found = check_url(domain, subdomain, topdomain)
+    found = check_url1(domain, subdomain, topdomain)
     print(f"Discovered domains: {found}")
 elif tld_count == 2:
     found = check_url(domain, subdomain, topdomain, topdomain2)
