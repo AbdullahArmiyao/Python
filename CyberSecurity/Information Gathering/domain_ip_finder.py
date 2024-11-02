@@ -1,5 +1,14 @@
 #!/bin/python3
 
+'''-----------------------Domain IP Finder----------------------
+How it works:
+The user enters a valid URL, then the code tries to obtain the IP
+by finding the domain. As long as the domain is valid, it most 
+definetly has an IP.
+(This is the simplest explanation I could give...)
+----------------------------------------------------------------'''
+
+
 # import socket
 import socket
 

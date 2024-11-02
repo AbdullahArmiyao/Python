@@ -1,5 +1,15 @@
 #!/bin/python3
 
+'''-------------------Subdomain Enumeration----------------------
+How it works:
+The user enters a domain, and the number of top-level domains.
+Depending on the number of TLDs, either functions is called.
+The functions iterate through a list of subdomains and TLDs and forms
+URLs with them, if the URL checks out, it is added to the list of
+valid domains, else it is skipped
+-----------------------------------------------------------------'''
+
+
 # To perform DNS lookup
 import socket
 
